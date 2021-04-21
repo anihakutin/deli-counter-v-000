@@ -1,28 +1,24 @@
 # Write your code here.
 #customer quene array
-katz_deli = [ ]
-
+katz_deli = []
 #return quene status
-def line(array)
-  if array.any?
-      line = ""
-      array.each_index{|i| line << " #{i + 1}. #{array[i]}" }
-      puts "The line is currently:#{line}"
-    else
-      puts "The line is currently empty."
-  end
-end
-
-#new customer number gen
-def take_a_number(array, name)
-  array << name
-  puts "Welcome, #{array[-1]}. You are number #{array.size} in line."
-end
-
-def now_serving(array)
-  if array.any?
-    puts "Currently serving #{array.shift}."
+def line(katz_deli)
+  if katz_deli == []
+    puts"The line is currently empty."
   else
-    puts "There is nobody waiting to be served!"
+    current_line = "The line is currently:"
+    katz_deli.each.with_index(1) do |guy, i|
+      current_line << " #{i}. #{guy}"
+    end
+    puts current_line
   end
+end
+#new customer number gen
+def take_a_number(katz_deli, new_customer)
+  katz_deli << new_customer
+  puts "Welcome, #{new_customer}. You are number #{katz_deli.count} in line."
+end
+
+def now_serving(katz_deli)
+  puts"Currently serving #{katz_deli.first}."
 end
